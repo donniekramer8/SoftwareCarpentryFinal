@@ -57,5 +57,3 @@ Below is an example of each major stage:
   1. Load each pair of downsampled masks and estimate affine 2×3 warp via ECC.
   2. Upscale the warp translation back to full resolution.
   3. Compute border color (mode of RGB channels) and apply `cv2.warpAffine` to the full-res image.
-
-![Pipeline Diagram](assets/pipeline_diagram.png)
