@@ -1,21 +1,19 @@
-# SoftwareCarpentryFinal
+# Automatic Cropping and Alignment of H&E tissue sections
 
 ## Notebook Workflow
 
-### 0_images_to_downscaled_masks.ipynb
+### 0) images_to_downscaled_masks.ipynb
 
-- **Purpose**: Generate binary and connected-component masks from raw RGB images, then downsample those masks by a user-specified factor.
+- **Purpose**: 
 - **Inputs**:
   - Folder of raw `.tif` or `.png` images.
   - Threshold and size-filter parameters defined in the notebook.
 - **Outputs**:
   - `downscaled_masks/` folder containing downsampled mask `.tif` files.
 - **Key Steps**:
-  1. Load each image and extract a binary mask of tissue via green-channel thresholding.
-  2. Smooth the mask with a Gaussian filter and remove small objects.
-  3. Label each connected component and downsample by integer factor `ds`.
+  1. 
 
-### 1_get_bounding_box_crop.ipynb
+### 1) get_bounding_box_crop.ipynb
 
 - **Purpose**: From downsampled masks, compute bounding boxes for each object and crop corresponding patches from the original full-resolution images.
 - **Inputs**:
@@ -29,7 +27,7 @@
   2. Sort bounding boxes left-to-right.
   3. Crop the original image per bounding box and fill background pixels with the channel-wise mode color.
 
-### 2_align_all_images_in_folder.ipynb
+### 2) align_all_images_in_folder.ipynb
 
 - **Purpose**: Align a series of image crops (e.g. serial sections) to a reference using an affine ECC-based registration.
 - **Inputs**:
