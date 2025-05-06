@@ -1,6 +1,24 @@
 # Automatic Cropping and Alignment of H&E tissue sections
 
-## Notebook Workflow
+## Prerequists and Installation
+
+
+## Notebooks Workflow
+---
+
+## Workflow Overview
+
+Below is an example of each major stage:
+
+| Stage               | Example                                      |
+|---------------------|----------------------------------------------|
+| **Input Image**     | ![Input](assets/input.png)               |
+| **Downscaled Mask** | ![Mask](assets/masks.png)                    |
+| **Aligned Output**  | ![Aligned](assets/output.png)                |
+
+---
+
+## Notebooks
 
 ### 0) images_to_downscaled_masks.ipynb
 
@@ -40,25 +58,4 @@
   2. Upscale the warp translation back to full resolution.
   3. Compute border color (mode of RGB channels) and apply `cv2.warpAffine` to the full-res image.
 
----
-
-## Key Functions
-
-- `get_mask(im: np.ndarray) -> np.ndarray`  
-  Generate a labeled mask from an RGB image.
-- `downsample_mask(mask: np.ndarray, ds: int) -> np.ndarray`  
-  Strided downsampling of a mask.
-- `get_bounding_boxes(mask: np.ndarray, margin: int=0) -> Dict[int, Tuple[int,int,int,int]]`  
-  Extract and sort bounding boxes.
-- `crop_image_with_boxes(image: np.ndarray, boxes: Dict[int,Tuple[int,int,int,int]], mask: np.ndarray) -> Dict[int,np.ndarray]`  
-  Crop patches and fill backgrounds.
-- `estimate_affine_transform(mask_ref_ds: np.ndarray, mask_mov_ds: np.ndarray, criteria: Tuple[int,int,float], warp_init: Optional[np.ndarray]=None) -> Tuple[np.ndarray,float]`  
-  Compute ECC-based affine warp.
-- `upsample_warp_matrix(warp_ds: np.ndarray, ds: int) -> np.ndarray`  
-  Rescale translation terms of the warp matrix.
-- `compute_border_color(img: np.ndarray) -> Tuple[int,int,int]`  
-  Mode-based border fill color.
-- `warp_image_with_affine(img: np.ndarray, M: np.ndarray, output_shape: Tuple[int,int], border_color: Tuple[int,int,int], interp: int) -> np.ndarray`  
-  Apply affine transform with constant border.
-
----
+![Pipeline Diagram](assets/pipeline_diagram.png)
