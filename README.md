@@ -5,6 +5,9 @@ conda create --name sc-env python=3.9
 conda activate sc-env  
 pip install -r requirements.txt
 
+## Unit testing
+python -m unittest discover
+
 ## Notebooks Workflow
 Run the following jupyter notebooks sequentially.
 - 0_images_to_downscaled_masks.ipynb
