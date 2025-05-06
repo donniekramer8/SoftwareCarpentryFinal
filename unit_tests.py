@@ -3,16 +3,15 @@ import numpy as np
 from PIL import Image
 import cv2
 
-from utils import (  # Replace with actual filename or module name
+from utils import (
     scale_up_mask,
     get_bounding_boxes,
     crop_image_with_boxes,
-    get_mask,
     downsample_mask,
     estimate_affine_transform,
+    compute_border_color,
     upsample_warp_matrix,
-    warp_image_with_affine,
-    compute_border_color
+    warp_image_with_affine
 )
 
 class TestImageProcessing(unittest.TestCase):
