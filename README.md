@@ -29,7 +29,9 @@ Below is an example of each major stage:
 - **Outputs**:
   - `downscaled_masks/` folder containing downsampled mask `.tif` files.
 - **Key Steps**:
-  1. 
+  1. ___
+  2. ___
+  3. ___
 
 ### 1) get_bounding_box_crop.ipynb
 
