@@ -12,8 +12,8 @@ Below is an example of each major stage:
 
 | Stage               | Example                                      |
 |---------------------|----------------------------------------------|
-| **Input Image**     | ![Input](assets/input.png)               |
-| **Downscaled Mask** | ![Mask](assets/masks.png)                    |
+| **Input Image**     | ![Input](assets/input.png)                   |
+| **Mask**            | ![Mask](assets/masks.png)                    |
 | **Aligned Output**  | ![Aligned](assets/output.png)                |
 
 ---
