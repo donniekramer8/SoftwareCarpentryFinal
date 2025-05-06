@@ -1,10 +1,17 @@
 # Automatic Cropping and Alignment of H&E tissue sections
 
-## Prerequists and Installation
-
+## Prerequisites and Installation
+conda create --name sc-env python=3.9  
+conda activate sc-env  
+pip install -r requirements.txt
 
 ## Notebooks Workflow
----
+Run the following jupyter notebooks sequentially.
+- 0_images_to_downscaled_masks.ipynb
+- 1_get_bounding_box_crop.ipynb
+- 2_align_all_images_in_folder.ipynb
+
+Make sure to read the comments as you go along the code.
 
 ## Workflow Overview
 
@@ -24,14 +31,16 @@ Below is an example of each major stage:
 
 - **Purpose**: 
 - **Inputs**:
-  - Folder of raw `.tif` or `.png` images.
-  - Threshold and size-filter parameters defined in the notebook.
+  - Folder of raw `.tif` images.
+  - Downscale factor to downscale images for input to Cellpose model
+  - Cellpose model path and parameters
 - **Outputs**:
-  - `downscaled_masks/` folder containing downsampled mask `.tif` files.
+  - `masks/` folder containing mask `.tif` files to be used for downstream tasks.
+  - `overlaid_masks/` folder containing overlaid mask `.tif` files for visualization.
 - **Key Steps**:
-  1. ___
-  2. ___
-  3. ___
+  1. Read in and downscale each image.
+  2. Configure the model and segment a few images first.
+  3. Re-configure the model and segment all images.
 
 ### 1) get_bounding_box_crop.ipynb
 
